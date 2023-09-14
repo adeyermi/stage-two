@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Record</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>User_id</th>
+          <th>Full_name</th>
+          <th>Your_email</th>
+          <th>Phonenumber</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for crud in cruds %}
+        <tr>
+          <td>{{ crud.eid }}</td>
+          <td>{{crud.ename}}</td>
+          <td>{{crud.eemail}}</td>
+          <td>{{crud.econtact}}</td>
+          <td>
+            <a href="/edit/{{ crud.id }}">Edit</a>
+            <a href="/delete/{{crud.id}}">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <br />
+    <br />
+    <button><a style="color: white" href="/api">Create New Record</a></button>
+  </body>
+</html>

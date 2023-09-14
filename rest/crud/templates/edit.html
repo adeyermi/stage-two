@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZURI TASK</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <form method="POST" action="/update/{{crud.id}}">
+        {% csrf_token %}
+        <div>
+            <br>
+            <p>
+                <h3>Update Details</h3>
+            </p>
+        </div>
+        <div>
+            <p>User_id:</p>
+            <div>
+                <input type="text" name="eid" value="{{crud.eid}}" />
+            </div>
+        </div>
+        <div>
+            <p>Full_name:</p>
+            <div>
+                <input type="text" name="ename" value="{{crud.ename}}" />
+            </div>
+        </div>
+        <div>
+            <p>Your_email :</p>
+            <div>
+                <input type="email" name="eemail" value="{{crud.eemail}}" />
+            </div>
+        </div>
+        <div>
+            <p>Phonenumber:</p>
+            <div>
+                <input type="text" name="econtact" value="{{crud.econtact}}" />
+            </div>
+        </div>
+        <div>
+            <br>
+            <button type="submit">Update</button>
+        </div>
+    </form>
+</body>
+
+</html>
